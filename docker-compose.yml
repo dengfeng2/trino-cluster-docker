@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+    coodinator:
+        build:
+            context: ./
+            args:
+                TRINO_SERVER_PACKAGE: trino-server-364
+        volumes:
+          - ./coordinator-etc:/trino-etc
+        networks:
+          - trino-net
+        hostname: coordinator
+        ports:
+          - "8080:8080"
+    worker1:
+        build:
+            context: ./
+            args:
+                TRINO_SERVER_PACKAGE: trino-server-364
+        volumes:
+          - ./worker-etc:/trino-etc
+        networks:
+          - trino-net
+    worker2:
+        build:
+            context: ./
+            args:
+                TRINO_SERVER_PACKAGE: trino-server-364
+        volumes:
+          - ./worker-etc:/trino-etc
+        networks:
+          - trino-net
+
+networks:
+    trino-net:
+        driver: bridge

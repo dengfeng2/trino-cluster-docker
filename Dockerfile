@@ -3,6 +3,10 @@ FROM centos:centos8
 RUN echo "trino soft nofile 131072" >> /etc/security/limits.d/trino.conf && \
     echo "trino hard nofile 131072" >> /etc/security/limits.d/trino.conf
 
+RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
+         -e 's|^#baseurl=http://mirror.centos.org|baseurl=https://mirrors.tuna.tsinghua.edu.cn|g' \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-*.repo
 RUN yum makecache && \
     yum install -y python3 && \
     yum install -y java-11-openjdk-devel && \

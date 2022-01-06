@@ -1,10 +1,7 @@
 version: "3.9"
 services:
     coodinator:
-        build:
-            context: ./
-            args:
-                TRINO_SERVER_PACKAGE: trino-server-364
+        image: trino:latest
         volumes:
           - ./coordinator-etc:/trino-etc
         networks:
@@ -13,19 +10,13 @@ services:
         ports:
           - "8080:8080"
     worker1:
-        build:
-            context: ./
-            args:
-                TRINO_SERVER_PACKAGE: trino-server-364
+        image: trino:latest
         volumes:
           - ./worker-etc:/trino-etc
         networks:
           - trino-net
     worker2:
-        build:
-            context: ./
-            args:
-                TRINO_SERVER_PACKAGE: trino-server-364
+        image: trino:latest
         volumes:
           - ./worker-etc:/trino-etc
         networks:

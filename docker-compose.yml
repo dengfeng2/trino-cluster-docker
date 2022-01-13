@@ -15,12 +15,14 @@ services:
           - ./worker-etc:/trino-etc
         networks:
           - trino-net
+        hostname: worker1
     worker2:
         image: trino:latest
         volumes:
           - ./worker-etc:/trino-etc
         networks:
           - trino-net
+        hostname: worker2
 
 networks:
     trino-net:

@@ -1,5 +1,6 @@
 # trino-cluster-docker
 
+【注】不同的分支切换到不同的连接器
 利用docker容器模拟trino集群的部署。
 
 使用步骤：

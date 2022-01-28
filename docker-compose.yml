@@ -23,6 +23,24 @@ services:
         networks:
           - trino-net
         hostname: worker2
+    postgresql:
+        image: postgres:14.1
+        networks:
+          - trino-net
+        hostname: postgresql
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: my-secret-pw
+            POSTGRES_USER: yulin
+    mysql:
+        image: mysql:8.0.27
+        networks:
+          - trino-net
+        hostname: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: my-secret-pw
+
 
 networks:
     trino-net:

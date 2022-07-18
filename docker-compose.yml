@@ -40,6 +40,9 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: my-secret-pw
+            MYSQL_DATABASE: yulin
+            MYSQL_USER: yulin
+            MYSQL_PASSWORD: my-secret-pw
 
 
 networks:

@@ -1,1 +1,1 @@
-docker build -t trino --build-arg TRINO_SERVER_PACKAGE=trino-server-367 .
+docker build -t trino --build-arg TRINO_SERVER_PACKAGE=trino-server-376 .
